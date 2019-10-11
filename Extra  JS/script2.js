@@ -32,6 +32,11 @@ function generate(numberOfChar, hasSpecialChar, hasNumericChar, hasUpperChar, ha
     var randomNumericChar;
     var randomUpperChar;
     var randomLowerChar;
+    // if(numberOfChar<8 || numberOfChar >128){
+    //     alert("HEY! Your Password needs to be within 8 and 128 characters")
+    //     return
+    // }
+    
     if (hasSpecialChar) {
         randomSpecialChar = getRandomValue(special)
     }

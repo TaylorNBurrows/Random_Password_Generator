@@ -3,10 +3,7 @@ document.querySelector("#generateBtn").addEventListener("click", function () {
     // here we initiate a choices string
     var choices = "";
     var numberOfChar = prompt("How many characters do you want the password to be?");
-    var hasSpecialChar = confirm("Do you want special characters in the password?");
-    var hasNumericChar = confirm("Do you want numbers in the password?");
-    var hasUpperChar = confirm("Do you want upper case letters in the password?");
-    var hasLowerChar = confirm("Do you want lower case letters in the password?");
+
 
     var special = "!@#$%^&*()+=.~";
     var numbers = "1234567890";
@@ -14,17 +11,25 @@ document.querySelector("#generateBtn").addEventListener("click", function () {
     var lower = "abcdefghijklmnopqrstuvwxyz";
 
     // in this logic, we are generating a choices string that consists of all possible characters that we may generate a password from
-    if (hasSpecialChar) {
-        choices = choices.concat(special);
-    }
-    if (hasNumericChar) {
-        choices = choices.concat(numbers);
-    }
-    if (hasUpperChar) {
-        choices = choices.concat(upper);
-    }
-    if (hasLowerChar) {
-        choices = choices.concat(lower);
+    if (numberOfChar > 8 && numberOfChar < 128) {
+        var hasSpecialChar = confirm("Do you want special characters in the password?");
+        var hasNumericChar = confirm("Do you want numbers in the password?");
+        var hasUpperChar = confirm("Do you want upper case letters in the password?");
+        var hasLowerChar = confirm("Do you want lower case letters in the password?");
+        if (hasSpecialChar) {
+            choices = choices.concat(special);
+        }
+        if (hasNumericChar) {
+            choices = choices.concat(numbers);
+        }
+        if (hasUpperChar) {
+            choices = choices.concat(upper);
+        }
+        if (hasLowerChar) {
+            choices = choices.concat(lower);
+        }
+    } else {
+        alert("HEY! Your Password needs to be within 8 and 128 characters");
     }
     generatePassword(choices, numberOfChar);
 })
